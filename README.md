@@ -1,8 +1,8 @@
-# Model Brain Surgery
+# Model Prefrontal Lobotomy / 模型的前额叶切除手术
 
 ## English
 
-Model Brain Surgery is a lightweight local workflow for activation capture and weight ablation on Hugging Face Transformers models. It is designed as a small research sandbox before moving the same idea to larger checkpoints.
+Model Prefrontal Lobotomy is a lightweight local workflow for activation capture and weight ablation on Hugging Face Transformers models. It is designed as a small research sandbox before moving the same idea to larger checkpoints.
 
 The default project layout uses `Qwen3-1.7B` as the source model and writes the edited checkpoint to `surgery-output/`.
 
@@ -24,7 +24,7 @@ model_brain_surgery/
 Python 3.10+ is recommended. On Apple Silicon Macs, Python 3.11 or 3.12 is preferred.
 
 ```bash
-cd /Users/liuyc/Documents/liuyc/资源/极客项目/model_brain_surgery
+cd model_brain_surgery
 
 conda create -n model-surgery python=3.12 -y
 conda activate model-surgery
@@ -152,7 +152,7 @@ For each selected layer, the script edits `mlp.down_proj.weight` so the layer em
 
 ## 中文
 
-Model Brain Surgery 是一个轻量的本地实验项目，用于在 Hugging Face Transformers 格式的模型上做激活捕获和权重消融。它适合先在小模型上验证流程，再把同样思路迁移到更大的 checkpoint。
+模型的前额叶切除手术是一个轻量的本地实验项目，用于在 Hugging Face Transformers 格式的模型上做激活捕获和权重消融。它适合先在小模型上验证流程，再把同样思路迁移到更大的 checkpoint。
 
 当前项目默认使用 `Qwen3-1.7B` 作为原始模型，并把手术后的模型保存到 `surgery-output/`。
 
@@ -174,7 +174,7 @@ model_brain_surgery/
 推荐使用 Python 3.10+。Apple Silicon Mac 建议使用 Python 3.11 或 3.12。
 
 ```bash
-cd /Users/liuyc/Documents/liuyc/资源/极客项目/model_brain_surgery
+cd model_brain_surgery
 
 conda create -n model-surgery python=3.12 -y
 conda activate model-surgery
