@@ -1,0 +1,6 @@
+torch
+transformers>=4.45.0
+safetensors
+tqdm
+huggingface_hub[cli]<1.0
+urllib3<2; platform_system == "Darwin"
