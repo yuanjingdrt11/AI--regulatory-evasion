@@ -1,4 +1,4 @@
-# Model Prefrontal Lobotomy / 模型的前额叶切除手术
+# Model Prefrontal Lobotomy
 
 ## English
 
@@ -12,6 +12,7 @@ The default project layout uses `Qwen3-1.7B` as the source model and writes the 
 model_brain_surgery/
   brain_surgery.py        # Capture activations, compute a direction, edit weights, save the model
   chat_qwen.py            # Minimal chat REPL; loads surgery-output/ by default
+  download_qwen.py        # Download Qwen3-1.7B into the project directory
   harmful_prompts.py      # Target prompt set
   harmless_prompts.py     # Harmless control prompt set
   requirements.txt        # Python dependencies
@@ -48,17 +49,21 @@ If `mps available` is `True`, the scripts will prefer Apple GPU. Otherwise they 
 
 ### Model
 
+Model checkpoints are too large for ordinary GitHub commits. Keep the code and prompt files in Git, but download the model locally before running the experiment.
+
 The default model path is:
 
 ```text
 ./Qwen3-1.7B
 ```
 
-If the directory already exists, you can run the scripts directly. To download it again:
+Download the model into the current project directory:
 
 ```bash
-hf download Qwen/Qwen3-1.7B --local-dir ./Qwen3-1.7B
+python download_qwen.py
 ```
+
+If the directory already exists, you can run the scripts directly.
 
 Use a Transformers / safetensors checkpoint for this workflow, not GGUF.
 
@@ -150,7 +155,7 @@ For each selected layer, the script edits `mlp.down_proj.weight` so the layer em
 
 ---
 
-## 中文
+## 模型前额叶切除手术
 
 模型的前额叶切除手术是一个轻量的本地实验项目，用于在 Hugging Face Transformers 格式的模型上做激活捕获和权重消融。它适合先在小模型上验证流程，再把同样思路迁移到更大的 checkpoint。
 
@@ -162,6 +167,7 @@ For each selected layer, the script edits `mlp.down_proj.weight` so the layer em
 model_brain_surgery/
   brain_surgery.py        # 抓激活、计算方向、修改权重、保存模型
   chat_qwen.py            # 最小聊天 REPL；默认加载 surgery-output/
+  download_qwen.py        # 将 Qwen3-1.7B 下载到当前项目目录
   harmful_prompts.py      # 目标 prompt 集合
   harmless_prompts.py     # 无害对照 prompt 集合
   requirements.txt        # Python 依赖
@@ -198,17 +204,21 @@ PY
 
 ### 模型准备
 
+模型权重文件过大，不适合直接提交到普通 GitHub 仓库。建议 GitHub 中只保存代码和 prompt 文件，运行实验前再在本地下载模型。
+
 默认模型路径是：
 
 ```text
 ./Qwen3-1.7B
 ```
 
-如果目录已经存在，可以直接运行脚本。若需要重新下载：
+将模型下载到当前项目目录：
 
 ```bash
-hf download Qwen/Qwen3-1.7B --local-dir ./Qwen3-1.7B
+python download_qwen.py
 ```
+
+如果 `Qwen3-1.7B/` 已经存在，可以直接运行后续脚本。
 
 这里需要使用 Transformers / safetensors 格式模型，不是 GGUF。
 
